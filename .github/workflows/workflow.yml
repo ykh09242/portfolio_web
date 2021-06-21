@@ -19,7 +19,6 @@ jobs:
       - run: flutter build web --release
         working-directory: ./
       - run: |
-          mv .gitattributes build/web
           cd build/web
           git init
           git config --global user.email phk09242@gmail.com
