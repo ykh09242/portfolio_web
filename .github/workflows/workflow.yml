@@ -23,6 +23,7 @@ jobs:
           git init
           git config --global user.email phk09242@gmail.com
           git config --global user.name Park Dong UK
+          git config --global init.defaultBranch master
           git status
           git remote add origin https://github.com/ykh09242/portfolio_web.git 
           git checkout -b web_release
