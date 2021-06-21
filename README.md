@@ -2,5 +2,5 @@
 
 Park Dong Uk Portfolio Web
 
-# page URL
+# Page URL
 https://ykh09242.github.io/portfolio_web/
