@@ -10,23 +10,24 @@ jobs:
       my_secret: $
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        with:
+          path: master
       - uses: subosito/flutter-action@v1
         with:
           channel: 'stable'
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
-        working-directory: ./
       - run: |
           cd build/web
           git init
-          git config --global init.defaultBranch master
-          git config --global user.email phk09242@gmail.com
-          git config --global user.name Park Dong UK
+          git config init.defaultBranch master
+          git config user.email phk09242@gmail.com
+          git config user.name ParkDongUK
           git status
           git remote add origin https://github.com/ykh09242/portfolio_web.git 
           git checkout -b web_release
-          git add --all
+          git add .
           git commit -m "update"
-          git push origin web_release -f
+          git push
