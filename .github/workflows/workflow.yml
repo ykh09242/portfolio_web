@@ -17,7 +17,6 @@ jobs:
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
-        # 1. change path which exist lib/main.dart
         working-directory: ./
       - run: |
           cd build/web
@@ -26,7 +25,7 @@ jobs:
           git config --global user.name Park Dong UK
           git status
           git remote add origin https://github.com/ykh09242/portfolio_web.git 
-          git checkout -b gh-pages
+          git checkout -b web_release
           git add --all
           git commit -m "update"
-          git push origin gh-pages -f
+          git push origin web_release -f
