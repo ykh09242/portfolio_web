@@ -88,16 +88,17 @@ class _AboutViewState extends State<AboutView>
   }
 
   Widget profilePicture() {
-    return SizedBox(
-      height: getImageSize(),
+    return ClipOval(
+        child: Container(
+      alignment: Alignment.center,
       width: getImageSize(),
-      child: ClipRRect(
-          borderRadius: BorderRadius.circular(getImageSize() / 2),
-          child: Container(
-            color: Colors.grey,
-            child: const Center(child: Text('PLACEHOLDER IMAGE')),
-          )),
-    );
+      height: getImageSize(),
+      color: Colors.grey,
+      child: const Text(
+        'PLACEHOLDER IMAGE',
+        textAlign: TextAlign.center,
+      ),
+    ));
   }
 
   double getImageSize() {
