@@ -57,6 +57,7 @@ class _HomeViewState extends State<HomeView> {
   Widget mobileView() {
     return Column(
       children: <Widget>[
+        SizedBox(height: screenHeight * 0.05),
         profilePicture(),
         SizedBox(height: screenHeight * 0.02),
         header(30),

@@ -21,8 +21,11 @@ class _BulletListState extends State<BulletList>
     super.initState();
     animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000));
-    Timer(
-        const Duration(milliseconds: 200), () => animationController.forward());
+    Timer(const Duration(milliseconds: 200), () {
+      if (mounted) {
+        animationController.forward();
+      }
+    });
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTab extends StatelessWidget {
-  const CustomTab({Key? key, required this.title}) : super(key: key);
+  const CustomTab(this.title, {Key? key}) : super(key: key);
 
   final String title;
 

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class TabControllerHandler extends InheritedWidget {
   const TabControllerHandler({
     Key? key,
-    required this.tabController,
+    required this.controller,
     required Widget child,
   }) : super(key: key, child: child);
 
-  final TabController tabController;
+  final TabController controller;
 
   static TabControllerHandler? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<TabControllerHandler>();
@@ -15,6 +15,6 @@ class TabControllerHandler extends InheritedWidget {
 
   @override
   bool updateShouldNotify(TabControllerHandler oldWidget) {
-    return oldWidget.tabController != tabController;
+    return oldWidget.controller != controller;
   }
 }

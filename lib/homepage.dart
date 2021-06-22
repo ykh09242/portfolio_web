@@ -28,15 +28,15 @@ class _HomePageState extends State<HomePage>
 
   List<ContentView> contentViews = <ContentView>[
     ContentView(
-      tab: const CustomTab(title: 'Home'),
+      tab: const CustomTab('Home'),
       content: const HomeView(),
     ),
     ContentView(
-      tab: const CustomTab(title: 'About'),
+      tab: const CustomTab('About'),
       content: const AboutView(),
     ),
     ContentView(
-      tab: const CustomTab(title: 'Projects'),
+      tab: const CustomTab('Projects'),
       content: const ProjectsView(),
     )
   ];
@@ -60,15 +60,19 @@ class _HomePageState extends State<HomePage>
       backgroundColor: Colors.white,
       key: scaffoldKey,
       endDrawer: drawer(),
-      body: Padding(
-        padding: EdgeInsets.only(
-            top: topPadding,
-            bottom: bottomPadding,
-            left: horizontalPadding,
-            right: horizontalPadding),
-        child:
-            ViewWrapper(desktopView: desktopView(), mobileView: mobileView()),
-      ),
+      body: ViewWrapper(
+          desktopView: Padding(
+            padding: EdgeInsets.only(
+                top: topPadding,
+                bottom: bottomPadding,
+                left: horizontalPadding,
+                right: horizontalPadding),
+            child: desktopView(),
+          ),
+          mobileView: Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: mobileView(),
+          )),
     );
   }
 
@@ -104,32 +108,25 @@ class _HomePageState extends State<HomePage>
   }
 
   Widget mobileView() {
-    return Padding(
-      padding: EdgeInsets.only(left: 0, right: 0),
-      child: SizedBox(
-        width: screenWidth,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            IconButton(
-                iconSize: screenWidth * 0.08,
-                icon: const Icon(Icons.menu_rounded),
-                color: Colors.white,
-                splashColor: Colors.transparent,
-                onPressed: () => scaffoldKey.currentState?.openEndDrawer()),
-            Expanded(
-              child: ScrollablePositionedList.builder(
-                scrollDirection: Axis.vertical,
-                itemScrollController: itemScrollController,
-                itemCount: contentViews.length,
-                itemBuilder: (BuildContext context, int index) =>
-                    contentViews[index].content,
-              ),
-            )
-          ],
+    return Stack(
+      children: <Widget>[
+        ScrollablePositionedList.builder(
+          scrollDirection: Axis.vertical,
+          itemScrollController: itemScrollController,
+          itemCount: contentViews.length,
+          itemBuilder: (BuildContext context, int index) =>
+              contentViews[index].content,
         ),
-      ),
+        Align(
+          alignment: Alignment.topRight,
+          child: IconButton(
+              iconSize: screenWidth * 0.08,
+              icon: const Icon(Icons.menu_rounded),
+              color: Colors.grey,
+              splashColor: Colors.transparent,
+              onPressed: () => scaffoldKey.currentState?.openEndDrawer()),
+        )
+      ],
     );
   }
 

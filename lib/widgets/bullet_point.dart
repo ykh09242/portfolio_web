@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/utils/theme_selector.dart';
 
@@ -37,8 +38,10 @@ class BulletPoint extends StatelessWidget {
             ),
             SizedBox(width: MediaQuery.of(context).size.width * 0.01),
             Flexible(
-              child: Text(
+              child: AutoSizeText(
                 text,
+                maxFontSize: ThemeSelector.selectBodyText(context)?.fontSize ??
+                    double.infinity,
                 style: ThemeSelector.selectBodyText(context),
               ),
             )

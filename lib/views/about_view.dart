@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/utils/theme_selector.dart';
 import 'package:portfolio_web/utils/view_wrapper.dart';
@@ -112,9 +113,10 @@ class _AboutViewState extends State<AboutView>
   }
 
   Widget infoText() {
-    return Text(
+    return AutoSizeText(
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-      overflow: TextOverflow.clip,
+      maxFontSize:
+          ThemeSelector.selectBodyText(context)?.fontSize ?? double.infinity,
       style: ThemeSelector.selectBodyText(context),
     );
   }
