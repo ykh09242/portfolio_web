@@ -33,11 +33,12 @@ class ProjectImage extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onPressed,
               style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  shape: RoundedRectangleBorder(borderRadius: borderRadius)),
+                  primary: Colors.black,
+                  shape: RoundedRectangleBorder(borderRadius: borderRadius),
+                  shadowColor: Colors.transparent),
               child: Text(
                 project.title,
-                style: const TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           ),

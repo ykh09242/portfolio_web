@@ -8,7 +8,9 @@ class CustomTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double fontSize = getFontSize(context);
-    return Tab(child: Text(title, style: TextStyle(fontSize: fontSize)));
+    return Tab(
+        child: Text(title,
+            style: TextStyle(fontSize: fontSize, color: Colors.black)));
   }
 
   double getFontSize(BuildContext context) {

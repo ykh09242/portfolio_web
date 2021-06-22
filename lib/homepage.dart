@@ -25,9 +25,6 @@ class _HomePageState extends State<HomePage>
 
   late double screenHeight;
   late double screenWidth;
-  late double topPadding;
-  late double bottomPadding;
-  late double sidePadding;
 
   List<ContentView> contentViews = <ContentView>[
     ContentView(
@@ -55,16 +52,20 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;
     screenHeight = MediaQuery.of(context).size.height;
-    topPadding = screenHeight * 0.05;
-    bottomPadding = screenHeight * 0.03;
-    sidePadding = screenWidth * 0.05;
+    final double topPadding = screenHeight * 0.05;
+    final double bottomPadding = screenHeight * 0.03;
+    final double horizontalPadding = screenWidth * 0.05;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF1E1E24),
+      backgroundColor: Colors.white,
       key: scaffoldKey,
       endDrawer: drawer(),
       body: Padding(
-        padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
+        padding: EdgeInsets.only(
+            top: topPadding,
+            bottom: bottomPadding,
+            left: horizontalPadding,
+            right: horizontalPadding),
         child:
             ViewWrapper(desktopView: desktopView(), mobileView: mobileView()),
       ),
@@ -104,7 +105,7 @@ class _HomePageState extends State<HomePage>
 
   Widget mobileView() {
     return Padding(
-      padding: EdgeInsets.only(left: sidePadding, right: sidePadding),
+      padding: EdgeInsets.only(left: 0, right: 0),
       child: SizedBox(
         width: screenWidth,
         child: Column(

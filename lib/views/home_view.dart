@@ -28,7 +28,6 @@ class _HomeViewState extends State<HomeView> {
         const NavigationArrow(isBackArrow: false),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
               width: screenWidth * 0.45,
@@ -89,9 +88,9 @@ class _HomeViewState extends State<HomeView> {
       child: Container(
         width: getImageSize(),
         height: getImageSize(),
-        color: Colors.white,
+        color: Colors.grey,
       ), /*Image.asset(
-        'assets/picture.png',
+        'images/picture.png',
         width: getImageSize(),
         height: getImageSize(),
         fit: BoxFit.cover,
@@ -102,12 +101,10 @@ class _HomeViewState extends State<HomeView> {
   Widget header(double fontSize) {
     return RichText(
       text: TextSpan(
-        // Note: Styles for TextSpans must be explicitly defined.
-        // Child text spans will inherit styles from parent
         style: ThemeSelector.selectHeadline(context),
         children: const <TextSpan>[
           TextSpan(text: 'Hi, my name is '),
-          TextSpan(text: 'Florian', style: TextStyle(color: Color(0xff21a179))),
+          TextSpan(text: 'Florian', style: TextStyle(color: Color(0xFF21A179))),
           TextSpan(text: '!'),
         ],
       ),

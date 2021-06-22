@@ -12,10 +12,7 @@ class NavigationArrow extends StatelessWidget {
   Widget build(BuildContext context) {
     final TabController? tabController =
         TabControllerHandler.of(context)?.tabController;
-    return Container(
-      padding: isBackArrow
-          ? EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.01)
-          : EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.01),
+    return Align(
       alignment: isBackArrow ? Alignment.centerLeft : Alignment.centerRight,
       child: IconButton(
         icon: Icon(isBackArrow
@@ -23,7 +20,7 @@ class NavigationArrow extends StatelessWidget {
             : Icons.arrow_forward_ios_rounded),
         onPressed: () => tabController?.animateTo(
             isBackArrow ? tabController.index - 1 : tabController.index + 1),
-        color: Colors.white,
+        color: Colors.black,
         splashColor: Colors.transparent,
       ),
     );

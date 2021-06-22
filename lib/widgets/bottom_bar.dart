@@ -11,43 +11,22 @@ class BottomBar extends StatelessWidget {
     final double screenHeight = MediaQuery.of(context).size.height;
     return Column(
       children: <Widget>[
-        Container(
+        const Divider(
           height: 2,
-          width: screenWidth * 0.9,
-          color: Colors.white,
-          alignment: Alignment.center,
+          color: Colors.black,
         ),
-        Container(
+        SizedBox(
           height: screenHeight * 0.05,
-          padding: EdgeInsets.only(
-              left: screenWidth * 0.05, right: screenWidth * 0.05),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  const CustomIconButton(
-                    iconData: FontAwesomeIcons.youtube,
-                    url:
-                        'https://www.youtube.com/channel/UCcrXelEbe1HEZb0Olqy7jGg',
-                    color: Colors.red,
-                  ),
-                  SizedBox(width: screenWidth * 0.021),
-                  const CustomIconButton(
-                    iconData: FontAwesomeIcons.github,
-                    url: 'https://github.com/FlorianPruemer',
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: screenWidth * 0.02),
-                  const CustomIconButton(
-                    iconData: FontAwesomeIcons.linkedin,
-                    url: 'https://www.linkedin.com/in/FlorianPruemer/',
-                    color: Colors.blue,
-                  )
-                ],
+            children: const <Widget>[
+              CustomIconButton(
+                iconData: FontAwesomeIcons.github,
+                url: 'https://github.com/ykh09242',
+                color: Colors.black,
               ),
-              const Text('Made with Flutter Web \u00a9 2021',
-                  style: TextStyle(color: Colors.white))
+              Text('Made with Flutter Web \u00a9 2021',
+                  style: TextStyle(color: Colors.black))
             ],
           ),
         )
