@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage>
         SizedBox(
           height: screenHeight * 0.8,
           child: TabControllerHandler(
-            tabController: tabController,
+            controller: tabController,
             child: TabBarView(
               controller: tabController,
               children: contentViews.map((ContentView e) => e.content).toList(),

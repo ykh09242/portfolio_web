@@ -10,16 +10,16 @@ class NavigationArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TabController? tabController =
-        TabControllerHandler.of(context)?.tabController;
+    final TabController? controller =
+        TabControllerHandler.of(context)?.controller;
     return Align(
       alignment: isBackArrow ? Alignment.centerLeft : Alignment.centerRight,
       child: IconButton(
         icon: Icon(isBackArrow
             ? Icons.arrow_back_ios_rounded
             : Icons.arrow_forward_ios_rounded),
-        onPressed: () => tabController?.animateTo(
-            isBackArrow ? tabController.index - 1 : tabController.index + 1),
+        onPressed: () => controller?.animateTo(
+            isBackArrow ? controller.index - 1 : controller.index + 1),
         color: Colors.black,
         splashColor: Colors.transparent,
       ),
