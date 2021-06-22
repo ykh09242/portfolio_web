@@ -111,12 +111,15 @@ class _HomePageState extends State<HomePage>
     return Stack(
       children: <Widget>[
         ScrollablePositionedList.builder(
-          scrollDirection: Axis.vertical,
-          itemScrollController: itemScrollController,
-          itemCount: contentViews.length,
-          itemBuilder: (BuildContext context, int index) =>
-              contentViews[index].content,
-        ),
+            scrollDirection: Axis.vertical,
+            itemScrollController: itemScrollController,
+            itemCount: contentViews.length + 1,
+            itemBuilder: (BuildContext context, int index) {
+              if (index < contentViews.length)
+                return contentViews[index].content;
+              else
+                return const BottomBar();
+            }),
         Align(
           alignment: Alignment.topRight,
           child: IconButton(
