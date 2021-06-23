@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:universal_platform/universal_platform.dart';
 
 class ViewWrapper extends StatelessWidget {
   const ViewWrapper(
@@ -12,12 +13,14 @@ class ViewWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      if (constraints.maxWidth > 715 &&
-          MediaQuery.of(context).size.height > 550) {
-        return desktopView;
-      } else {
+      final double screenHeight = MediaQuery.of(context).size.height;
+      if (UniversalPlatform.isAndroid ||
+          UniversalPlatform.isIOS ||
+          constraints.maxWidth <= 715 ||
+          screenHeight <= 550) {
         return mobileView;
       }
+      return desktopView;
     });
   }
 }
